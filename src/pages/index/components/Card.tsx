@@ -1,12 +1,21 @@
 import styles from "./Card.module.scss";
+import { CardDTO } from "../types/card"; // Import the Props type from the appropriate file
 
-function Card() {
+interface Props {
+  data: CardDTO;
+}
+
+function Card({ data }: Props) {
   const openDialog = () => {
     console.log("open dialog");
   };
   return (
     <div className={styles.card} onClick={openDialog}>
-      <img src="" alt="" className={styles.card__image} />
+      <img
+        src={data.urls.small}
+        alt={data.alt_description}
+        className={styles.card__image}
+      />
     </div>
   );
 }
