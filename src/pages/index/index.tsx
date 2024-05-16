@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { CardDTO } from "./types/card";
+import { useRecoilValue } from "recoil";
+import { imageData } from "@/store/selectors/imageSelector";
 
 import CommonHeader from "@/components/common/header/CommonHeader";
 import CommonSearchBar from "@/components/common/searchBar/CommonSearchBar";
@@ -12,36 +13,11 @@ import Card from "./components/Card";
 import styles from "./styles/index.module.scss";
 
 function index() {
-  const [imgUrl, setImgUrl] = useState([]);
-  const getData = async () => {
-    // API call
-    const API_URL = "https://api.unsplash.com/search/photos";
-    const API_KEY = "NU9M3TPx9Zym4kseq9c41uAl-e02Pf5U6tAk2q9ERdc";
-    const PER_PAGE = 30;
+  const storeImage = useRecoilValue(imageData);
+  const [imgData, setImgData] = useState<CardDTO[]>([]);
 
-    const searchValue = "Korea";
-    const pageValue = 100;
-
-    try {
-      const res = await axios.get(
-        `${API_URL}?query=${searchValue}&client_id=${API_KEY}&page=${pageValue}&per_page=${PER_PAGE}`
-      );
-      console.log(res);
-
-      if (res.status === 200) {
-        setImgUrl(res.data.results);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const cardList = imgUrl.map((card: CardDTO) => {
+  const CARD_LIST = storeImage.data.results.map((card: CardDTO) => {
     return <Card key={card.id} data={card} />;
-  });
-
-  useEffect(() => {
-    getData();
   });
 
   return (
@@ -63,7 +39,7 @@ function index() {
             <CommonSearchBar />
           </div>
         </div>
-        <div className={styles.page__contents__imageBox}>{cardList}</div>
+        <div className={styles.page__contents__imageBox}>{CARD_LIST}</div>
       </div>
       {/*공통 푸터 UI 부분 - Common Footer UI Section*/}
       <CommonFooter />
