@@ -52,7 +52,7 @@ function index() {
       </div>
       {/*공통 푸터 UI 부분 - Common Footer UI Section*/}
       <CommonFooter />
-      {open && <DetailDialog data={imgData} />}
+      {open && <DetailDialog data={imgData} handleDialog={setOpen} />}
     </div>
   );
 }

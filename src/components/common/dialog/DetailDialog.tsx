@@ -4,15 +4,20 @@ import styles from "./DetailDialog.module.scss";
 interface Props {
   // Declare the Props interface
   data: CardDTO;
+  handleDialog: (open: boolean) => void;
 }
 
-function DetailDialog({ data }: Props) {
+function DetailDialog({ data, handleDialog }: Props) {
+  const closeDialog = () => {
+    // Close the dialog
+    handleDialog(false);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.container__dialog}>
         <div className={styles.container__dialog__header}>
           <div className={styles.close}>
-            <button className={styles.close__button}>
+            <button className={styles.close__button} onClick={closeDialog}>
               {/*Google Icon*/}
               <span
                 className="material-symbols-outlined"
