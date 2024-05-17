@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { CardDTO } from "./types/card";
-import { useRecoilValue } from "recoil";
+import { useRecoilValueLoadable } from "recoil";
 import { imageData } from "@/store/selectors/imageSelector";
 
 import CommonHeader from "@/components/common/header/CommonHeader";
@@ -14,20 +14,38 @@ import Card from "./components/Card";
 import styles from "./styles/index.module.scss";
 
 function index() {
-  const storeImage = useRecoilValue(imageData);
+  //const storeImage = useRecoilValue(imageData);
+  const storeImage = useRecoilValueLoadable(imageData);
   const [imgData, setImgData] = useState<CardDTO>();
   const [open, setOpen] = useState<boolean>(false); // Dialog open state
 
-  const CARD_LIST = storeImage.data.results.map((card: CardDTO) => {
-    return (
-      <Card
-        key={card.id}
-        data={card}
-        handleDialog={setOpen}
-        handleSetMetaData={setImgData}
-      />
-    );
-  });
+  // const CARD_LIST = storeImage.data.results.map((card: CardDTO) => {
+  //   return (
+  //     <Card
+  //       key={card.id}
+  //       data={card}
+  //       handleDialog={setOpen}
+  //       handleSetMetaData={setImgData}
+  //     />
+  //   );
+  // });
+  const CARD_LIST = useMemo(() => {
+    if (storeImage.state === "hasValue") {
+      const result = storeImage.contents.map((card: CardDTO) => {
+        return (
+          <Card
+            key={card.id}
+            data={card}
+            handleDialog={setOpen}
+            handleSetMetaData={setImgData}
+          />
+        );
+      });
+      return result;
+    } else {
+      return <div>Loading...</div>;
+    }
+  }, [storeImage]);
 
   return (
     <div className={styles.page}>
