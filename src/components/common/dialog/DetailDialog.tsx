@@ -35,7 +35,7 @@ function DetailDialog({ data }: Props) {
                 className="material-symbols-outlined"
                 style={{ fontSize: 16 + "px" }}
               >
-                favourite
+                favorite
               </span>
               Bookmark
             </button>
