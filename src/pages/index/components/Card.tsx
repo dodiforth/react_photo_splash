@@ -3,11 +3,14 @@ import { CardDTO } from "../types/card"; // Import the Props type from the appro
 
 interface Props {
   data: CardDTO;
+  handleDialog: (open: boolean) => void;
+  handleSetMetaData: (data: CardDTO) => void;
 }
 
-function Card({ data }: Props) {
+function Card({ data, handleDialog, handleSetMetaData }: Props) {
   const openDialog = () => {
-    console.log("open dialog");
+    handleDialog(true);
+    handleSetMetaData(data);
   };
   return (
     <div className={styles.card} onClick={openDialog}>

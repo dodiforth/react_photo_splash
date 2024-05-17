@@ -7,6 +7,7 @@ import CommonHeader from "@/components/common/header/CommonHeader";
 import CommonSearchBar from "@/components/common/searchBar/CommonSearchBar";
 import CommonNav from "@/components/common/navigation/CommonNav";
 import CommonFooter from "@/components/common/footer/CommonFooter";
+import DetailDialog from "@/components/common/dialog/DetailDialog";
 import Card from "./components/Card";
 
 // CSS
@@ -14,10 +15,18 @@ import styles from "./styles/index.module.scss";
 
 function index() {
   const storeImage = useRecoilValue(imageData);
-  const [imgData, setImgData] = useState<CardDTO[]>([]);
+  const [imgData, setImgData] = useState<CardDTO>();
+  const [open, setOpen] = useState<boolean>(false); // Dialog open state
 
   const CARD_LIST = storeImage.data.results.map((card: CardDTO) => {
-    return <Card key={card.id} data={card} />;
+    return (
+      <Card
+        key={card.id}
+        data={card}
+        handleDialog={setOpen}
+        handleSetMetaData={setImgData}
+      />
+    );
   });
 
   return (
@@ -43,6 +52,7 @@ function index() {
       </div>
       {/*공통 푸터 UI 부분 - Common Footer UI Section*/}
       <CommonFooter />
+      {open && <DetailDialog data={imgData} />}
     </div>
   );
 }
