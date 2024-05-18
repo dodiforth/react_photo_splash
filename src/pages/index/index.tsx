@@ -31,7 +31,7 @@ function index() {
   // });
   const CARD_LIST = useMemo(() => {
     if (storeImage.state === "hasValue") {
-      const result = storeImage.contents.map((card: CardDTO) => {
+      const result = storeImage.contents.results.map((card: CardDTO) => {
         return (
           <Card
             key={card.id}
