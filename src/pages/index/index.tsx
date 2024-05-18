@@ -12,6 +12,7 @@ import Card from "./components/Card";
 
 // CSS
 import styles from "./styles/index.module.scss";
+import Loading from "./components/Loading";
 
 function index() {
   //const storeImage = useRecoilValue(imageData);
@@ -43,7 +44,11 @@ function index() {
       });
       return result;
     } else {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <Loading />
+        </div>
+      );
     }
   }, [storeImage]);
 

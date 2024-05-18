@@ -3,8 +3,6 @@ import styles from "./CommonFooter.module.scss";
 import { imageData } from "@/store/selectors/imageSelector";
 import { pageState } from "@/store/atoms/pageState";
 import { useEffect, useState } from "react";
-import { isButtonElement } from "react-router-dom/dist/dom";
-import { key } from "localforage";
 import { searchState } from "@/store/atoms/searchState";
 
 function CommonFooter() {
@@ -64,7 +62,7 @@ function CommonFooter() {
           <img src="src/assets/icons/icon-arrowLeft.svg" alt="" />
         </button>
         {res[step] &&
-          res[step].map((page: number, index: number) => {
+          res[step].map((page: number) => {
             return (
               <button
                 className={
