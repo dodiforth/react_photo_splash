@@ -7,6 +7,7 @@ import { CardDTO } from "../index/types/card";
 
 function index() {
   const [data, setData] = useState([]);
+
   const getData = () => {
     const getLocalStorage = JSON.parse(localStorage.getItem("bookmark"));
 
@@ -23,6 +24,7 @@ function index() {
       {/* 공통 헤터 UI 부분 - Common Header UI*/}
       <CommonHeader />
       <main className={styles.page__contents}>
+        // The Card component is used to display the bookmarked images
         {data.map((item: CardDTO) => {
           return <Card prop={item} key={item.id} />;
         })}
