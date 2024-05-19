@@ -1,84 +1,84 @@
 [
   {
     "index": 0,
-    "path": "/edit",
+    "path": "/search/edit",
     "label": "Edit",
     "searchValue": "edit",
     "isActive": false
   },
   {
     "index": 1,
-    "path": "/following",
+    "path": "/search/following",
     "label": "Following",
     "searchValue": "following",
     "isActive": false
   },
   {
     "index": 2,
-    "path": "/photoPlus",
+    "path": "/search/photoPlus",
     "label": "Unsplash Photo+",
     "searchValue": "photo",
     "isActive": false
   },
   {
     "index": 3,
-    "path": "/oneColor",
+    "path": "/search/oneColor",
     "label": "Monochrome",
     "searchValue": "one color",
     "isActive": false
   },
   {
     "index": 4,
-    "path": "/3dRender",
+    "path": "/search/3dRender",
     "label": "3D Render",
     "searchValue": "3d render",
     "isActive": false
   },
   {
     "index": 5,
-    "path": "/nature",
+    "path": "/search/nature",
     "label": "Nature",
     "searchValue": "nature",
     "isActive": false
   },
   {
     "index": 6,
-    "path": "/texture",
+    "path": "/search/texture",
     "label": "Texture & Pattern",
     "searchValue": "texture",
     "isActive": false
   },
   {
     "index": 7,
-    "path": "/interior",
+    "path": "/search/interior",
     "label": "Interior",
     "searchValue": "interior",
     "isActive": false
   },
   {
     "index": 8,
-    "path": "/film",
+    "path": "/search/film",
     "label": "Film",
     "searchValue": "film",
     "isActive": false
   },
   {
     "index": 9,
-    "path": "/experimental",
+    "path": "/search/experimental",
     "label": "Experimental",
     "searchValue": "experimental",
     "isActive": false
   },
   {
     "index": 10,
-    "path": "/travel",
+    "path": "/search/travel",
     "label": "Travel",
     "searchValue": "travel",
     "isActive": false
   },
   {
     "index": 11,
-    "path": "/sports",
+    "path": "/search/sports",
     "label": "Sports",
     "searchValue": "sports",
     "isActive": false
