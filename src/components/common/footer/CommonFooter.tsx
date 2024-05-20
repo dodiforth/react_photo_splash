@@ -47,8 +47,11 @@ function CommonFooter() {
   const moveToNextPage = () => {
     if (step === divide - 1) return;
     else {
-      setStep((prevStep) => prevStep + 1);
-      setPage(res[step][0]);
+      setStep((prevStep) => {
+        const newStep = prevStep + 1;
+        setPage(res[newStep][0]);
+        return newStep;
+      });
     }
   };
 
