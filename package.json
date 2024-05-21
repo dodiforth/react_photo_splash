@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^20.12.11",
     "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
@@ -19,6 +20,7 @@
     "react-router-dom": "^6.23.1",
     "react-simple-toasts": "^5.10.0",
     "recoil": "^0.7.7",
+    "save": "^2.9.0",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
